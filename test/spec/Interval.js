@@ -29,6 +29,8 @@ describe('Interval', () => {
     component = mount((
       <Interval {...mockProps}>
         <b><TimeComponent /></b>
+        {null}
+        Test
       </Interval>
     ));
   };
