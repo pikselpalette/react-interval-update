@@ -36,11 +36,25 @@ describe('Interval', () => {
   beforeEach(setupComponent);
 
   it('renders normally', () => {
-    expect(component.find('b')).toHaveLength(1);
     expect(component.find('b')).toHaveText(currentTime);
   });
 
   it('sets timer matching interval', () => {
     expect(setTimeout).toHaveBeenCalledWith(expect.any(Function), 1000);
+  });
+
+  describe('after timer completes', () => {
+    let oldTime;
+
+    beforeEach(() => {
+      oldTime = currentTime;
+      jest.runOnlyPendingTimers();
+      component.update();
+    });
+
+    it('re-renders the child component', () => {
+      expect(oldTime).not.toEqual(currentTime);
+      expect(component.find('b')).toHaveText(currentTime);
+    });
   });
 });
