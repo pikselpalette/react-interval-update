@@ -7,6 +7,8 @@ import { Interval } from '../../lib/index';
 
 Enzyme.configure({ adapter: new Adapter() });
 
+jest.useFakeTimers();
+
 describe('Interval', () => {
   let component;
   let mockProps;
@@ -36,5 +38,9 @@ describe('Interval', () => {
   it('renders normally', () => {
     expect(component.find('b')).toHaveLength(1);
     expect(component.find('b')).toHaveText(currentTime);
+  });
+
+  it('sets timer matching interval', () => {
+    expect(setTimeout).toHaveBeenCalledWith(expect.any(Function), 1000);
   });
 });
