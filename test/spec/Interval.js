@@ -56,5 +56,29 @@ describe('Interval', () => {
       expect(oldTime).not.toEqual(currentTime);
       expect(component.find('b')).toHaveText(currentTime);
     });
+
+    describe('after timer completes again', () => {
+      beforeEach(() => {
+        oldTime = currentTime;
+        jest.runOnlyPendingTimers();
+        component.update();
+      });
+
+      it('re-renders the child component again', () => {
+        expect(oldTime).not.toEqual(currentTime);
+        expect(component.find('b')).toHaveText(currentTime);
+      });
+    });
+
+    describe('when passed a new interval prop', () => {
+      beforeEach(() => {
+        component.setProps({ interval: 2000 });
+        component.update();
+      });
+
+      it('calls setTimeout with new interval', () => {
+        expect(setTimeout).toHaveBeenCalledWith(expect.any(Function), 2000);
+      });
+    });
   });
 });
