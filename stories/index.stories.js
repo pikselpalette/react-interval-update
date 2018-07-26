@@ -31,10 +31,10 @@ storiesOf('Interval', module)
     </Interval>
   ));
 
-const CurrentTimeWithUpdater = ({ onIntervalChange }) => (
+const CurrentTimeWithUpdater = ({ onIntervalChange, interval }) => (
   <div>
     {new Date().toString()}
-    <input value={1000} onChange={({ target }) => onIntervalChange(parseInt(target.value, 10))} />
+    <input value={interval} onChange={({ target }) => onIntervalChange(parseInt(target.value, 10))} />
   </div>
 );
 

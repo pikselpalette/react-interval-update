@@ -18,7 +18,7 @@ describe('withInterval', () => {
     }
   }
 
-  const WrappedTestComponent = withInterval(TestComponent, { interval: 1000 });
+  const WrappedTestComponent = withInterval(TestComponent, { interval: 1000, prop: 'update' });
 
   const setupComponent = (overrides = {}) => {
     component = mount((
@@ -42,6 +42,10 @@ describe('withInterval', () => {
     expect(component.find(Interval)).toHaveProp('interval', 1000);
   });
 
+  it('renders Component with the default interval', () => {
+    expect(component.find(TestComponent)).toHaveProp('interval', 1000);
+  });
+
   describe('when onIntervalChange called', () => {
     beforeEach(() => {
       component.find(TestComponent).prop('onIntervalChange')(2000);
@@ -50,6 +54,10 @@ describe('withInterval', () => {
 
     it('renders Interval with the new interval', () => {
       expect(component.find(Interval)).toHaveProp('interval', 2000);
+    });
+
+    it('renders Component with the new interval', () => {
+      expect(component.find(TestComponent)).toHaveProp('interval', 2000);
     });
   });
 });
