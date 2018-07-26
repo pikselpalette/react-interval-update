@@ -9,7 +9,7 @@ Enzyme.configure({ adapter: new Adapter() });
 
 jest.useFakeTimers();
 
-describe('Interval', () => {
+describe('withInterval', () => {
   let component;
 
   class TestComponent extends React.Component {
@@ -18,7 +18,7 @@ describe('Interval', () => {
     }
   }
 
-  const WrappedTestComponent = withInterval(TestComponent, 1000);
+  const WrappedTestComponent = withInterval(TestComponent, { interval: 1000 });
 
   const setupComponent = (overrides = {}) => {
     component = mount((
