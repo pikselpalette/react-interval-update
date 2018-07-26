@@ -34,11 +34,12 @@ storiesOf('Interval', module)
 const CurrentTimeWithUpdater = ({ onIntervalChange, interval }) => (
   <div>
     {new Date().toString()}
-    <input value={interval} onChange={({ target }) => onIntervalChange(parseInt(target.value, 10))} />
+    <br />
+    Update interval: <input value={interval} onChange={({ target }) => onIntervalChange(parseInt(target.value, 10))} />
   </div>
 );
 
-const CurrentTimeWithInterval = withInterval(CurrentTimeWithUpdater, 1000);
+const CurrentTimeWithInterval = withInterval(CurrentTimeWithUpdater, { interval: 5000, prop: 'update' });
 
 storiesOf('withInterval', module)
   .addDecorator(story => (
@@ -46,6 +47,6 @@ storiesOf('withInterval', module)
       {story()}
     </div>
   ))
-  .add('default update every second', () => (
+  .add('default update every 5 seconds', () => (
     <CurrentTimeWithInterval />
   ));
