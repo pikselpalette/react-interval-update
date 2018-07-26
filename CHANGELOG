@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+## 0.2.0
+
+* Setting interval to a negative integer cancels the timeout
+
 ## 0.1.0
 
 * Package created

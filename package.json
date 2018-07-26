@@ -1,7 +1,7 @@
 {
   "name": "react-interval-update",
   "description": "Re-render a component at every interval",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "author": "Sam Boylett <sam.boylett@piksel.com>",
   "main": "dist/index.js",
   "scripts": {

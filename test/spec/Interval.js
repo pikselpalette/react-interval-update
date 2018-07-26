@@ -82,5 +82,16 @@ describe('Interval', () => {
         expect(setTimeout).toHaveBeenCalledWith(expect.any(Function), 2000);
       });
     });
+
+    describe('when passed a negative interval prop', () => {
+      beforeEach(() => {
+        component.setProps({ interval: -1 });
+        component.update();
+      });
+
+      it('does not call setTimeout', () => {
+        expect(setTimeout).not.toHaveBeenCalledWith(expect.any(Function), -1);
+      });
+    });
   });
 });
