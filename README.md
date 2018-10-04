@@ -1,6 +1,6 @@
 # React Interval Update
 
-[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0) [![Greenkeeper badge](https://badges.greenkeeper.io/pikselpalette/react-interval-update.svg)](https://greenkeeper.io/)
 
 ## Installation
 
